@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>D6D87AB8-DD15-4914-9493-C724718AAE08</string>
+	<key>IDESourceControlProjectName</key>
+	<string>SchmidtTMinimalistWeather</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>35D1B8581BCB10211658E878A1C63308E410B692</key>
+		<string>https://github.com/terryschmidt/MinimalistWeather.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>SchmidtTMinimalistWeather.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>35D1B8581BCB10211658E878A1C63308E410B692</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/terryschmidt/MinimalistWeather.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>35D1B8581BCB10211658E878A1C63308E410B692</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>35D1B8581BCB10211658E878A1C63308E410B692</string>
+			<key>IDESourceControlWCCName</key>
+			<string>SchmidtTMinimalistWeather</string>
+		</dict>
+	</array>
+</dict>
+</plist>

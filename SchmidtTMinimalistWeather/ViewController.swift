@@ -162,9 +162,9 @@ struct Forecast {
 }
 
 struct Weather {  // struct to hold weather data
-    let temperature: Int?
-    let humidity: Int?
-    let precipProbability: Int?
+    var temperature: Int?
+    var humidity: Int? = 0
+    var precipProbability: Int? = 0
     let summary: String?
     var icon: UIImage? = UIImage(named: "default.png")
     
@@ -173,7 +173,7 @@ struct Weather {  // struct to hold weather data
         summary = weatherDictionary["summary"] as? String // set the summary for later display
         
         if let humidityDouble = weatherDictionary["humidity"] as? Double {
-            humidity = Int(humidityDouble * 100) // get int value of the humidity
+            self.humidity = Int(humidityDouble * 100) // get int value of the humidity
         }
         if let precipDouble = weatherDictionary["precipProbability"] as? Double {
             precipProbability = Int(precipDouble * 100) // get int value of precip
