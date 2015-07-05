@@ -23,8 +23,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
     var isUsingCustomCoordinates = false
     var locationManager = CLLocationManager()
     let APIkey = "616071c2fbe0a49da3911a7053d960d3"
-    lazy var lat = 41.88 // used to store the current latitude coordinate
-    lazy var lon = -87.62 // used to store the current longitude coordinate
+    var lat: Double = -9999.9999 // used to store the current latitude coordinate
+    var lon: Double = -9999.9999 // used to store the current longitude coordinate
     //41.88, -87.62 is chicago
     
     override func viewWillAppear(animated: Bool) {
@@ -41,6 +41,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
             locationManager.desiredAccuracy = kCLLocationAccuracyBest // set the accuracy
             locationManager.startUpdatingLocation() // start updating
         }
+        //getWeather()
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,6 +52,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) { // this function is called when using startUpdatingLocation.  It gives the location to this function.
         if (isUsingCustomCoordinates == false) {
             var locValue: CLLocationCoordinate2D = manager.location.coordinate // put the coordinates in this variable
+            if (self.lat == -9999.9999 && self.lon == -9999.9999) {
+                self.lat = locValue.latitude
+                self.lon = locValue.longitude
+                getWeather()
+            }
             self.lat = locValue.latitude // set global variable to current latitude
             self.lon = locValue.longitude // set global variable to current longitude
         }
