@@ -41,7 +41,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
             locationManager.desiredAccuracy = kCLLocationAccuracyBest // set the accuracy
             locationManager.startUpdatingLocation() // start updating
         }
-        //getWeather()
     }
 
     override func didReceiveMemoryWarning() {
