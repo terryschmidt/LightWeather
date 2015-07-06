@@ -81,27 +81,30 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
             println(" \(self.lon)")
             self.latitudeLabel.text = "LATITUDE: \(self.lat)" // set latitude in UI
             self.longitudeLabel.text = "LONGITUDE: \(self.lon)" // set longitude in UI
+            
             forecast.getData(self.lat, lon: self.lon) { // call getData function on our forecast object, pass in the current coordinates
-                (let currently) in
-                if let currentWeather = currently {
-                    dispatch_async(dispatch_get_main_queue()) { // update UI asynchronously
-                        if let temperature = currentWeather.temperature {
+                (let currentl) in // trailing closure
+                if let currentWeathers = currentl { // check that it's not nil... (we have a valid weather object)
+                    dispatch_async(dispatch_get_main_queue()) { // Part of GCD API.  Submits a closure (I did trailing closure) with some code to a dispath queue of my choosing in an async manner.
+                        // the first argument (dispatch_get_main_queue()) specifies the queue.   In this situation, I chose the main queue.  Whatever code is put in this closure is guaranteed to execute on the main thread.
+                        // GCD is a complicated aspect of iOS dev.
+                        if let temperature = currentWeathers.temperature {
                             self.currentTemperatureLabel?.text = "\(temperature)º" // set the temperature label
                         }
                     
-                        if let humidity = currentWeather.humidity {
+                        if let humidity = currentWeathers.humidity {
                             self.humidityLabel?.text = "\(humidity)%" // set humidity
                         }
                     
-                        if let precipitation = currentWeather.precipProbability {
+                        if let precipitation = currentWeathers.precipProbability {
                             self.rainSnowLabel?.text = "\(precipitation)%" // set rain/snow label
                         }
                     
-                        if let icon = currentWeather.icon {
+                        if let icon = currentWeathers.icon {
                             self.currentWeatherIcon?.image = icon // set the appropriate icon
                         }
                     
-                        if let summary = currentWeather.summary {
+                        if let summary = currentWeathers.summary {
                             self.summaryLabel?.text = summary // set summary
                         }
                     }
@@ -150,26 +153,27 @@ struct Forecast {
             let connection = GetJSON(urlArg: stringToQueryForecastIO)  // create connection to get JSON
             
             connection.downloadJSON { // download the json data
-                (let JSONDictionary) in
+                (let JSONDictionary) in // trailing closure
                 let currentWeather = self.loadWeatherFromJSON(JSONDictionary)
                 completion(currentWeather)
             }
         }
     }
     
-    func loadWeatherFromJSON(jsonDictionary: [String: AnyObject]?) -> Weather? { // helper function used in getData
-        if let currentWeatherDictionary = jsonDictionary?["currently"] as? [String: AnyObject] {
+    func loadWeatherFromJSON(jsonDictionary: [String: AnyObject]?) -> Weather? { // method that gets a Weather object from a JSON dictionary
+        if let currentWeatherDictionary = jsonDictionary?["currently"] as? [String: AnyObject] { // need to check that the value associtated with the key "currently" is not nil.
+            // currently is how to access the current weather in the response from forecast.io
             return Weather(weatherDictionary: currentWeatherDictionary) // return weather with correct data in its fields
         } else {
-            return nil
+            return nil // this is the case where currently key has a nil value.
         }
     }
 }
 
 struct Weather {  // struct to hold weather data
     var temperature: Int?
-    var humidity: Int? = 0
-    var precipProbability: Int? = 0
+    var humidity: Int?
+    var precipProbability: Int?
     let summary: String?
     var icon: UIImage? = UIImage(named: "default.png")
     
