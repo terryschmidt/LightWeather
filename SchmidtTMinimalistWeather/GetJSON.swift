@@ -26,7 +26,7 @@ class GetJSON {
         let requestToSend: NSURLRequest = NSURLRequest(URL: queryString)
         let task = makeSession.dataTaskWithRequest(requestToSend) {
             (let data, let response, let error) in // trailing closure
-            println(data)
+            //println(data)
             println("Background thread println")
             
             // Check HTTP response (200 is success)

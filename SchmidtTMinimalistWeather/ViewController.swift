@@ -20,6 +20,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
     @IBOutlet weak var longitudeLabel: UILabel!
     @IBOutlet weak var latTextBox: UITextField!
     @IBOutlet weak var lonTextBox: UITextField!
+    @IBOutlet weak var windSpeedLabel: UILabel!
+    @IBOutlet weak var pressureLabel: UILabel!
+    
     var isUsingCustomCoordinates = false
     var locationManager = CLLocationManager()
     let APIkey = "616071c2fbe0a49da3911a7053d960d3"
@@ -79,6 +82,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
             let forecast = Forecast(APIkeyArg: APIkey) // create forecast object with my API key
             print("Coordinates about to be used: \(self.lat)") // just a log message
             println(" \(self.lon)")
+            
             self.latitudeLabel.text = "LATITUDE: \(self.lat)" // set latitude in UI
             self.longitudeLabel.text = "LONGITUDE: \(self.lon)" // set longitude in UI
             
@@ -88,6 +92,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
                     dispatch_async(dispatch_get_main_queue()) { // Part of GCD API.  Submits a closure (I did trailing closure) with some code to a dispath queue of my choosing in an async manner.
                         // the first argument (dispatch_get_main_queue()) specifies the queue.   In this situation, I chose the main queue.  Whatever code is put in this closure is guaranteed to execute on the main thread.
                         // GCD is a complicated aspect of iOS dev.
+                        
                         if let temperature = currentWeathers.temperature {
                             self.currentTemperatureLabel?.text = "\(temperature)º" // set the temperature label
                         }
@@ -107,6 +112,27 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
                         if let summary = currentWeathers.summary {
                             self.summaryLabel?.text = summary // set summary
                         }
+                        
+                        if let dew = currentWeathers.dewPoint {
+                            println("dewPoint: \(dew)")
+                        }
+                        
+                        if let cloud = currentWeathers.cloudCover {
+                            println("cloudCover: \(cloud)")
+                        }
+                        
+                        if let oz = currentWeathers.ozone {
+                            println("ozone: \(oz)")
+                        }
+                        if let wind = currentWeathers.windSpeed {
+                            self.windSpeedLabel?.text = wind.description
+                        }
+            
+                        if let press = currentWeathers.pressure {
+                            self.pressureLabel?.text = press.description
+                        }
+                        
+                        //println(currentWeathers.nothing)
                     }
                 }
         }
@@ -160,7 +186,7 @@ struct Forecast {
         }
     }
     
-    func loadWeatherFromJSON(jsonDictionary: [String: AnyObject]?) -> Weather? { // method that gets a Weather object from a JSON dictionary
+    func loadWeatherFromJSON(jsonDictionary: [NSObject: AnyObject]?) -> Weather? { // method that gets a Weather object from a JSON dictionary
         if let currentWeatherDictionary = jsonDictionary?["currently"] as? [String: AnyObject] { // need to check that the value associtated with the key "currently" is not nil.
             // currently is how to access the current weather in the response from forecast.io
             return Weather(weatherDictionary: currentWeatherDictionary) // return weather with correct data in its fields
@@ -171,6 +197,12 @@ struct Forecast {
 }
 
 struct Weather {  // struct to hold weather data
+    var nothing: String?
+    var dewPoint: Double?
+    var pressure: Double?
+    var ozone: Double?
+    var windSpeed: Double?
+    var cloudCover: Double?
     var temperature: Int?
     var humidity: Int?
     var precipProbability: Int?
@@ -178,6 +210,28 @@ struct Weather {  // struct to hold weather data
     var icon: UIImage? = UIImage(named: "default.png")
     
     init(weatherDictionary: [String: AnyObject]) { // initializer/constructor
+        nothing = weatherDictionary["nothing"] as? String
+        
+        if let dew = weatherDictionary["dewPoint"] as? Double {
+            dewPoint = dew
+        }
+        
+        if let pressure = weatherDictionary["pressure"] as? Double {
+            self.pressure  = pressure
+        }
+        
+        if let ozone = weatherDictionary["ozone"] as? Double {
+            self.ozone = ozone
+        }
+        
+        if let wind = weatherDictionary["windSpeed"] as? Double {
+            windSpeed = wind
+        }
+        
+        if let clouds = weatherDictionary["cloudCover"] as? Double {
+            cloudCover = clouds
+        }
+        
         temperature = weatherDictionary["temperature"] as? Int // set temperature for later display
         summary = weatherDictionary["summary"] as? String // set the summary for later display
         
