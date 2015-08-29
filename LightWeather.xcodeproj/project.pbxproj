@@ -28,7 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		CA38CA571B1B9D800072A6EE /* SchmidtTMinimalistWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SchmidtTMinimalistWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA38CA571B1B9D800072A6EE /* LightWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LightWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA38CA5B1B1B9D800072A6EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA38CA5C1B1B9D800072A6EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA38CA5E1B1B9D800072A6EE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -74,7 +74,7 @@
 		CA38CA581B1B9D800072A6EE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CA38CA571B1B9D800072A6EE /* SchmidtTMinimalistWeather.app */,
+				CA38CA571B1B9D800072A6EE /* LightWeather.app */,
 				CA38CA6C1B1B9D800072A6EE /* SchmidtTMinimalistWeatherTests.xctest */,
 			);
 			name = Products;
@@ -122,9 +122,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CA38CA561B1B9D800072A6EE /* SchmidtTMinimalistWeather */ = {
+		CA38CA561B1B9D800072A6EE /* LightWeather */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CA38CA761B1B9D800072A6EE /* Build configuration list for PBXNativeTarget "SchmidtTMinimalistWeather" */;
+			buildConfigurationList = CA38CA761B1B9D800072A6EE /* Build configuration list for PBXNativeTarget "LightWeather" */;
 			buildPhases = (
 				CA38CA531B1B9D800072A6EE /* Sources */,
 				CA38CA541B1B9D800072A6EE /* Frameworks */,
@@ -134,9 +134,9 @@
 			);
 			dependencies = (
 			);
-			name = SchmidtTMinimalistWeather;
+			name = LightWeather;
 			productName = SchmidtTMinimalistWeather;
-			productReference = CA38CA571B1B9D800072A6EE /* SchmidtTMinimalistWeather.app */;
+			productReference = CA38CA571B1B9D800072A6EE /* LightWeather.app */;
 			productType = "com.apple.product-type.application";
 		};
 		CA38CA6B1B1B9D800072A6EE /* SchmidtTMinimalistWeatherTests */ = {
@@ -168,7 +168,7 @@
 				TargetAttributes = {
 					CA38CA561B1B9D800072A6EE = {
 						CreatedOnToolsVersion = 6.2;
-						DevelopmentTeam = MQ79U7S5FQ;
+						DevelopmentTeam = 48DK7S3MTS;
 					};
 					CA38CA6B1B1B9D800072A6EE = {
 						CreatedOnToolsVersion = 6.2;
@@ -176,7 +176,7 @@
 					};
 				};
 			};
-			buildConfigurationList = CA38CA521B1B9D800072A6EE /* Build configuration list for PBXProject "SchmidtTMinimalistWeather" */;
+			buildConfigurationList = CA38CA521B1B9D800072A6EE /* Build configuration list for PBXProject "LightWeather" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -189,7 +189,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CA38CA561B1B9D800072A6EE /* SchmidtTMinimalistWeather */,
+				CA38CA561B1B9D800072A6EE /* LightWeather */,
 				CA38CA6B1B1B9D800072A6EE /* SchmidtTMinimalistWeatherTests */,
 			);
 		};
@@ -239,7 +239,7 @@
 /* Begin PBXTargetDependency section */
 		CA38CA6E1B1B9D800072A6EE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = CA38CA561B1B9D800072A6EE /* SchmidtTMinimalistWeather */;
+			target = CA38CA561B1B9D800072A6EE /* LightWeather */;
 			targetProxy = CA38CA6D1B1B9D800072A6EE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -408,7 +408,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CA38CA521B1B9D800072A6EE /* Build configuration list for PBXProject "SchmidtTMinimalistWeather" */ = {
+		CA38CA521B1B9D800072A6EE /* Build configuration list for PBXProject "LightWeather" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CA38CA741B1B9D800072A6EE /* Debug */,
@@ -417,7 +417,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CA38CA761B1B9D800072A6EE /* Build configuration list for PBXNativeTarget "SchmidtTMinimalistWeather" */ = {
+		CA38CA761B1B9D800072A6EE /* Build configuration list for PBXNativeTarget "LightWeather" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CA38CA771B1B9D800072A6EE /* Debug */,

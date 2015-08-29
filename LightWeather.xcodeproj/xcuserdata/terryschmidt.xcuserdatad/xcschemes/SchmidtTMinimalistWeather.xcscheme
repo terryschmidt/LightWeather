@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "CA38CA561B1B9D800072A6EE"
-               BuildableName = "SchmidtTMinimalistWeather.app"
-               BlueprintName = "SchmidtTMinimalistWeather"
-               ReferencedContainer = "container:SchmidtTMinimalistWeather.xcodeproj">
+               BuildableName = "LightWeather.app"
+               BlueprintName = "LightWeather"
+               ReferencedContainer = "container:LightWeather.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -31,7 +31,7 @@
                BlueprintIdentifier = "CA38CA6B1B1B9D800072A6EE"
                BuildableName = "SchmidtTMinimalistWeatherTests.xctest"
                BlueprintName = "SchmidtTMinimalistWeatherTests"
-               ReferencedContainer = "container:SchmidtTMinimalistWeather.xcodeproj">
+               ReferencedContainer = "container:LightWeather.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -49,7 +49,7 @@
                BlueprintIdentifier = "CA38CA6B1B1B9D800072A6EE"
                BuildableName = "SchmidtTMinimalistWeatherTests.xctest"
                BlueprintName = "SchmidtTMinimalistWeatherTests"
-               ReferencedContainer = "container:SchmidtTMinimalistWeather.xcodeproj">
+               ReferencedContainer = "container:LightWeather.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CA38CA561B1B9D800072A6EE"
-            BuildableName = "SchmidtTMinimalistWeather.app"
-            BlueprintName = "SchmidtTMinimalistWeather"
-            ReferencedContainer = "container:SchmidtTMinimalistWeather.xcodeproj">
+            BuildableName = "LightWeather.app"
+            BlueprintName = "LightWeather"
+            ReferencedContainer = "container:LightWeather.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -77,9 +77,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CA38CA561B1B9D800072A6EE"
-            BuildableName = "SchmidtTMinimalistWeather.app"
-            BlueprintName = "SchmidtTMinimalistWeather"
-            ReferencedContainer = "container:SchmidtTMinimalistWeather.xcodeproj">
+            BuildableName = "LightWeather.app"
+            BlueprintName = "LightWeather"
+            ReferencedContainer = "container:LightWeather.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -100,9 +100,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CA38CA561B1B9D800072A6EE"
-            BuildableName = "SchmidtTMinimalistWeather.app"
-            BlueprintName = "SchmidtTMinimalistWeather"
-            ReferencedContainer = "container:SchmidtTMinimalistWeather.xcodeproj">
+            BuildableName = "LightWeather.app"
+            BlueprintName = "LightWeather"
+            ReferencedContainer = "container:LightWeather.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
