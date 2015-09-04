@@ -53,6 +53,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
     }
     
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) { // this function is called when using startUpdatingLocation.  It gives the location to this function.
+        invalidLabel.text = ""
         if (isUsingCustomCoordinates == false) {
             var locValue: CLLocationCoordinate2D = manager.location.coordinate // put the coordinates in this variable
             if (self.lat == -9999.9999 && self.lon == -9999.9999) {
@@ -66,6 +67,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
     }
     
     func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) { // if this gets called, it means it couldn't find location
+        invalidLabel.text = "Unable to find location"
         println("Error while updating location " + error.localizedDescription) // log message
         locationManager.stopUpdatingLocation() // stop whatever it's doing..
         usleep(1_000_000) // wait a second...
