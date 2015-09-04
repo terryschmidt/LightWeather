@@ -141,6 +141,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
     }
     
     @IBAction func refreshPressed() { // if user pressed refresh...
+        invalidLabel.text = ""
         locationManager.startUpdatingLocation() // update the location
         getWeather() // get the weather
     }
