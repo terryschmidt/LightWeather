@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -8,7 +8,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SchmidtTMinimalistWeather" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="LightWeather" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -128,8 +128,14 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B4e-22-u45">
+                                <rect key="frame" x="16" y="137" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="10"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.50848199770000002" green="1" blue="0.4680337758" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.20000000000000001" green="0.80000000000000004" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="K0R-rg-t6E" secondAttribute="bottom" constant="20" id="1lX-Wb-xTx"/>
                             <constraint firstItem="Dff-sQ-q2g" firstAttribute="leading" secondItem="s5d-9c-pGP" secondAttribute="trailing" constant="18" id="2zK-Y9-ic7"/>
@@ -140,6 +146,7 @@
                             <constraint firstItem="j2Q-po-Mae" firstAttribute="top" secondItem="s5d-9c-pGP" secondAttribute="bottom" constant="-29" id="8lt-5m-gfl"/>
                             <constraint firstAttribute="centerX" secondItem="OZH-ww-zK8" secondAttribute="centerX" constant="-80" id="A6U-E2-g2z"/>
                             <constraint firstItem="UPZ-hZ-2PB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="CdR-k0-eo1"/>
+                            <constraint firstItem="B4e-22-u45" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="DOo-pW-0nu"/>
                             <constraint firstItem="r9H-3t-RWO" firstAttribute="leading" secondItem="Z8x-ft-Kkj" secondAttribute="leading" id="DcS-I1-XNP"/>
                             <constraint firstItem="36g-zt-rDQ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="IMw-ZE-6jW"/>
                             <constraint firstItem="CuU-Nk-s7q" firstAttribute="top" secondItem="Pbf-J7-TPd" secondAttribute="bottom" constant="8" id="Jqz-DJ-PJr"/>
@@ -149,6 +156,7 @@
                             <constraint firstItem="cwD-lB-Esf" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="M6k-da-kx4"/>
                             <constraint firstAttribute="centerY" secondItem="j2Q-po-Mae" secondAttribute="centerY" id="Ntj-FO-LV7"/>
                             <constraint firstItem="OZH-ww-zK8" firstAttribute="top" secondItem="j2Q-po-Mae" secondAttribute="bottom" constant="-16" id="Slr-QY-bdc"/>
+                            <constraint firstItem="B4e-22-u45" firstAttribute="top" secondItem="nMw-SD-xz1" secondAttribute="bottom" constant="8" id="TfP-6q-lIJ"/>
                             <constraint firstAttribute="centerX" secondItem="s5d-9c-pGP" secondAttribute="centerX" constant="92" id="V4Z-fx-2W9"/>
                             <constraint firstAttribute="centerX" secondItem="K0R-rg-t6E" secondAttribute="centerX" id="Vcm-wy-ZrK"/>
                             <constraint firstAttribute="centerX" secondItem="j2Q-po-Mae" secondAttribute="centerX" id="WTU-rZ-KOD"/>
@@ -178,6 +186,7 @@
                         <outlet property="currentTemperatureLabel" destination="j2Q-po-Mae" id="Cz6-d6-QmT"/>
                         <outlet property="currentWeatherIcon" destination="s5d-9c-pGP" id="RV2-Av-4iM"/>
                         <outlet property="humidityLabel" destination="yFW-nB-W0i" id="TVa-rS-oSs"/>
+                        <outlet property="invalidLabel" destination="B4e-22-u45" id="X1G-jo-CZT"/>
                         <outlet property="latTextBox" destination="r9H-3t-RWO" id="Bw4-UK-5cZ"/>
                         <outlet property="latitudeLabel" destination="VJL-hB-FCK" id="I3m-eO-RJp"/>
                         <outlet property="lonTextBox" destination="Z8x-ft-Kkj" id="dmm-hf-0fq"/>

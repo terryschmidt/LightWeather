@@ -12,12 +12,16 @@
 	<dict>
 		<key>35D1B8581BCB10211658E878A1C63308E410B692</key>
 		<string>https://github.com/terryschmidt/MinimalistWeather.git</string>
+		<key>8AD4ADD31B3BF79442E9C1A5644D002C11E2F02B</key>
+		<string>https://github.com/terryschmidt/MinimalistWeather.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>LightWeather.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>35D1B8581BCB10211658E878A1C63308E410B692</key>
+		<string>../../../SchmidtTMinimalistWeather</string>
+		<key>8AD4ADD31B3BF79442E9C1A5644D002C11E2F02B</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
@@ -25,9 +29,17 @@
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>35D1B8581BCB10211658E878A1C63308E410B692</string>
+	<string>8AD4ADD31B3BF79442E9C1A5644D002C11E2F02B</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>8AD4ADD31B3BF79442E9C1A5644D002C11E2F02B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>LightWeather</string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>

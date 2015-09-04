@@ -22,6 +22,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
     @IBOutlet weak var lonTextBox: UITextField!
     @IBOutlet weak var windSpeedLabel: UILabel!
     @IBOutlet weak var pressureLabel: UILabel!
+    @IBOutlet weak var invalidLabel: UILabel!
     
     var isUsingCustomCoordinates = false
     var locationManager = CLLocationManager()
@@ -150,12 +151,34 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
     }
     
     @IBAction func useCustomCoordinates(sender: AnyObject) {  // function allowing user to enter in their own coordinates, called when they hit use custom coordinates button
+        
         isUsingCustomCoordinates = true
+        var customLatString = (latTextBox.text as NSString)
+        var customLonString = (lonTextBox.text as NSString)
         var customLat = (latTextBox.text as NSString).doubleValue // get the double value from the text box
         var customLon = (lonTextBox.text as NSString).doubleValue // get double value from text box
-        self.lat = customLat // set the new latitude
-        self.lon = customLon // set the new longitude
-        getWeather() // get the weather for the new/custom coordinates
+        
+        if (customLat >= -90.0 && customLat <= 90.0 && customLon >= -180.0 && customLon <= 180.0) { // validate that coordinates are in valid range.
+            if (customLat != 0.0 && customLon != 0.0) {
+                self.lat = customLat // set the new latitude
+                self.lon = customLon // set the new longitude
+                invalidLabel.text = ""
+                getWeather() // get the weather for the new/custom coordinates
+            } else if (customLat == 0.0 && customLon == 0.0) {
+                if (customLatString.isEqualToString("0.0") && customLonString.isEqualToString("0.0")) {
+                    self.lat = 0.0
+                    self.lon = 0.0
+                    invalidLabel.text = ""
+                    getWeather()
+                } else {
+                    invalidLabel.text = "Invalid"
+                }
+            } else {
+                invalidLabel.text = "Invalid"
+            }
+        } else {
+            invalidLabel.text = "Invalid"
+        }
         isUsingCustomCoordinates = false
     }
 }
@@ -217,7 +240,7 @@ struct Weather {  // struct to hold weather data
         }
         
         if let pressure = weatherDictionary["pressure"] as? Double {
-            self.pressure  = pressure
+            self.pressure = pressure
         }
         
         if let ozone = weatherDictionary["ozone"] as? Double {
