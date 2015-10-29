@@ -27,21 +27,21 @@ class GetJSON {
         let task = makeSession.dataTaskWithRequest(requestToSend) {
             (let data, let response, let error) in // trailing closure
             //println(data)
-            println("Background thread println")
+            print("Background thread println")
             
             // Check HTTP response (200 is success)
             if let httpReplyFromForecastIO = response as? NSHTTPURLResponse {
                 switch(httpReplyFromForecastIO.statusCode) { // first check HTTP reply for success code
                     // case 200 is success.  when successful, we make a dictionary of the json data
                     case 200:
-                    let jsonDictionary = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as? [String: AnyObject] // convert data object to JSON dictionary
+                    let jsonDictionary = (try? NSJSONSerialization.JSONObjectWithData(data!, options: [])) as? [String: AnyObject] // convert data object to JSON dictionary
                     completion(jsonDictionary)
                     
-                    default: println("Request sent to forecast.io was not successful.") // everything other than success code 200 is bad
+                    default: print("Request sent to forecast.io was not successful.") // everything other than success code 200 is bad
                 }
             }
         }
-        println("Main thread println")
+        print("Main thread println")
         task.resume() // task is added to the session, and made active when we call resume.  Carried out on a background thread.
     }
 }

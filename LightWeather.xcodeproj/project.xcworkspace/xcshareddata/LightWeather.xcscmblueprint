@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "8AD4ADD31B3BF79442E9C1A5644D002C11E2F02B",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "8AD4ADD31B3BF79442E9C1A5644D002C11E2F02B" : 0,
+    "35D1B8581BCB10211658E878A1C63308E410B692" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "6036B673-E485-4BCB-9FAE-1CBF5D6B5416",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "8AD4ADD31B3BF79442E9C1A5644D002C11E2F02B" : "LightWeather",
+    "35D1B8581BCB10211658E878A1C63308E410B692" : "SchmidtTMinimalistWeather"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "LightWeather",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "LightWeather.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/terryschmidt\/MinimalistWeather.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "35D1B8581BCB10211658E878A1C63308E410B692"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/terryschmidt\/MinimalistWeather.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "8AD4ADD31B3BF79442E9C1A5644D002C11E2F02B"
+    }
+  ]
+}

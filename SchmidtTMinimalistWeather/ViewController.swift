@@ -52,10 +52,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
         // Dispose of any resources that can be recreated.
     }
     
-    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) { // this function is called when using startUpdatingLocation.  It gives the location to this function.
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) { // this function is called when using startUpdatingLocation.  It gives the location to this function.
         invalidLabel.text = ""
         if (isUsingCustomCoordinates == false) {
-            var locValue: CLLocationCoordinate2D = manager.location.coordinate // put the coordinates in this variable
+            let locValue: CLLocationCoordinate2D = manager.location!.coordinate // put the coordinates in this variable
             if (self.lat == -9999.9999 && self.lon == -9999.9999) {
                 self.lat = locValue.latitude
                 self.lon = locValue.longitude
@@ -66,16 +66,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
         }
     }
     
-    func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) { // if this gets called, it means it couldn't find location
+    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) { // if this gets called, it means it couldn't find location
         invalidLabel.text = "Unable to find location"
-        println("Error while updating location " + error.localizedDescription) // log message
+        print("Error while updating location " + error.localizedDescription) // log message
         locationManager.stopUpdatingLocation() // stop whatever it's doing..
         usleep(1_000_000) // wait a second...
         locationManager.desiredAccuracy = kCLLocationAccuracyBest // reset the accuracy
         locationManager.startUpdatingLocation() // try again.
     }
     
-    func locationManagerDidPauseLocationUpdates(manager: CLLocationManager!) {
+    func locationManagerDidPauseLocationUpdates(manager: CLLocationManager) {
         
     }
 
@@ -83,8 +83,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
     func getWeather() { // function to get the weather
         if (CLLocationManager.locationServicesEnabled()) { // if location services is enabled...
             let forecast = Forecast(APIkeyArg: APIkey) // create forecast object with my API key
-            print("Coordinates about to be used: \(self.lat)") // just a log message
-            println(" \(self.lon)")
+            print("Coordinates about to be used: \(self.lat)", terminator: "") // just a log message
+            print(" \(self.lon)")
             
             self.latitudeLabel.text = "LATITUDE: \(self.lat)" // set latitude in UI
             self.longitudeLabel.text = "LONGITUDE: \(self.lon)" // set longitude in UI
@@ -117,15 +117,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
                         }
                         
                         if let dew = currentWeathers.dewPoint {
-                            println("dewPoint: \(dew)")
+                            print("dewPoint: \(dew)")
                         }
                         
                         if let cloud = currentWeathers.cloudCover {
-                            println("cloudCover: \(cloud)")
+                            print("cloudCover: \(cloud)")
                         }
                         
                         if let oz = currentWeathers.ozone {
-                            println("ozone: \(oz)")
+                            print("ozone: \(oz)")
                         }
                         if let wind = currentWeathers.windSpeed {
                             self.windSpeedLabel?.text = wind.description
@@ -153,22 +153,26 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
         return true
     }
     
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
     @IBAction func useCustomCoordinates(sender: AnyObject) {  // function allowing user to enter in their own coordinates, called when they hit use custom coordinates button
         
         isUsingCustomCoordinates = true
-        var customLatString = (latTextBox.text as NSString)
-        var customLonString = (lonTextBox.text as NSString)
-        var customLat = (latTextBox.text as NSString).doubleValue // get the double value from the text box
-        var customLon = (lonTextBox.text as NSString).doubleValue // get double value from text box
+        let customLatString = latTextBox.text
+        let customLonString = lonTextBox.text
+        let customLat = Double(customLatString!) // get the double value from the text box
+        let customLon = Double(customLonString!) // get double value from text box
         
         if (customLat >= -90.0 && customLat <= 90.0 && customLon >= -180.0 && customLon <= 180.0) { // validate that coordinates are in valid range.
             if (customLat != 0.0 && customLon != 0.0) {
-                self.lat = customLat // set the new latitude
-                self.lon = customLon // set the new longitude
+                self.lat = customLat! // set the new latitude
+                self.lon = customLon! // set the new longitude
                 invalidLabel.text = ""
                 getWeather() // get the weather for the new/custom coordinates
             } else if (customLat == 0.0 && customLon == 0.0) {
-                if (customLatString.isEqualToString("0.0") && customLonString.isEqualToString("0.0")) {
+                if (customLatString == ("0.0") && customLonString == ("0.0")) {
                     self.lat = 0.0
                     self.lon = 0.0
                     invalidLabel.text = ""
@@ -236,7 +240,6 @@ struct Weather {  // struct to hold weather data
     var icon: UIImage? = UIImage(named: "default.png")
     
     init(weatherDictionary: [String: AnyObject]) { // initializer/constructor
-        nothing = weatherDictionary["nothing"] as? String
         
         if let dew = weatherDictionary["dewPoint"] as? Double {
             dewPoint = dew
